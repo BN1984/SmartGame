@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OreDeposit : MonoBehaviour
+public class OreDeposit
 {
-    // Start is called before the first frame update
-    void Start()
+    public Resource Res { get; private set;}
+
+    public OreDeposit(Resource res)
     {
-        
+        Res = res;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GetRes(int power, GameStructure structure)
     {
-        
+        Resource res = Res.Copy();
+        structure.GetResource(res);
+        Res.ChangeAmount(power);
+
+        if (Res.Amount <= 0)
+            Res = null;
     }
 }

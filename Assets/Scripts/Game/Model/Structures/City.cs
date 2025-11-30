@@ -12,6 +12,7 @@ public class City : GameStructure
     private List<Resource> _resources;
     private Vector3 _position;
     private float _size;
+    private List<Road> _roads;
 
     public City(string name, int resourceCapacity, List<Resource> resources, Vector3 position, float size) : base(name, resourceCapacity, resources, position)
     {
@@ -26,5 +27,15 @@ public class City : GameStructure
     {
         int people = 100 * Convert.ToInt32(_size);
         _resources.Add(new People("Люди", people));
+    }
+
+    public void Resize()
+    {
+
+    }
+
+    public void InstructionsToSend()
+    {
+
     }
 }

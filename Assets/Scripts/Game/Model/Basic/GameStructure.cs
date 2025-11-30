@@ -5,20 +5,22 @@ using UnityEngine;
 
 public abstract class GameStructure
 {
-    private string _name;
     private List<Resource> _resources;
     private int _resourceCapacity;
     public Vector3 Position { get; private set; }
+    public string Name { get; private set; }
+    public List<Road> Roads { get; private set; }//убрать
 
     public GameStructure(string name, int resourceCapacity, List<Resource> resources, Vector3 position)
     {
-        _name = name;
+        Name = name;
         _resourceCapacity = resourceCapacity;
         _resources = resources;
         Position = position;
+        Roads = new List<Road>();
     }
 
-    public void GetResource(Resource getRes)
+    public void GetResource(Resource getRes)//Set
     {
         _resources.Add(getRes);
     }
@@ -40,7 +42,22 @@ public abstract class GameStructure
             _resources.Remove(removeRes);
             return true;
         }
-        return false;
-        
+        return false;      
+    }
+
+    public void AddRoad(Road road)
+    {
+        Roads.Add(road);
+    }
+
+    public void RemoveRoad(string name)
+    {
+        for (int i = 0; i < Roads.Count; i++)
+        {
+            if (Roads[i].Name == name)
+            {
+                Roads.RemoveAt(i);
+            }
+        }
     }
 }

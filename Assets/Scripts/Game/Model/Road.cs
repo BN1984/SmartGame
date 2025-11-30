@@ -7,16 +7,16 @@ using UnityEngine;
 
 public class Road
 {
-    private string _name;
     private List<Package> _resources;
     private GameStructure _connectTo;
     private GameStructure _connectFrom;
     private int _conductivity;
     private float _length;
+    public string Name { get; private set; }
 
     public Road(GameStructure connectTo, GameStructure connectFrom, int conductivity, string name)
     {
-        _name = name;
+        Name = name;
         _conductivity = conductivity;
         _connectTo = connectTo;
         _connectFrom = connectFrom;

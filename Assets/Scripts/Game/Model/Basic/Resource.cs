@@ -12,4 +12,15 @@ public abstract class Resource
         Name = name;
         Amount = amount;
     }
+
+    public int ChangeAmount(int change)
+    {
+        Amount += change;
+        return Amount;
+    }
+
+    public Resource Copy()
+    {
+        return this;
+    }
 }
