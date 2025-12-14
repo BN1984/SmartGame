@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateBuilding
+public class Builder
 {
     private GameStructure startStructure;
     private GameStructure endStructure;
@@ -26,6 +26,7 @@ public class CreateBuilding
     private void CreateCity(Vector3 position)
     {
         City city = new City("Город", Random.Range(100, 10000), null, position, 1);
+        Debug.Log($"City created at {position.x}, {position.y}");
     }
 
     private void CreateRoad(GameStructure startObject, GameStructure endObject, int conductivity, string name)

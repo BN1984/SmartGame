@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class CompositionRoot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private InputService _inputService;
+    private Builder _builder;
+    private Connector _connector;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        _builder = new Builder();
+        _connector = new Connector(_inputService, _builder);
     }
 }
