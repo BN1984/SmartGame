@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OreDeposit
+public class OreDeposit//
 {
     public Resource Res { get; private set;}
 
